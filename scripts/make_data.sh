@@ -6,6 +6,7 @@ PARALLEL=
 PARALLEL=gnuparallel
 # number of parallel jobs, e.g., number of CPU cores
 PARJOBS=6
+[ -f /proc/cpuinfo ] && PARJOBS=$(grep ^processor /proc/cpuinfo | wc -l)
 
 NUMRUNS=24
 
@@ -18,7 +19,7 @@ make_fIs() {
             parallel -j${PARJOBS} $SIMSCRIPT $NUMBRANCHES -- $(seq $NUMRUNS)
         ;;
         gnuparallel)
-            parallel -j${PARJOBS} $SIMSCRIPT $NUMBRANCHES ::: $(seq $NUMRUNS)
+            parallel --no-notice -j${PARJOBS} $SIMSCRIPT $NUMBRANCHES ::: $(seq $NUMRUNS)
         ;;
         *)
             for RUN in $(seq $NUMRUNS); do $SIMSCRIPT $NUMBRANCHES $RUN; done
