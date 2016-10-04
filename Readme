@@ -1,0 +1,22 @@
+This is the model associated with the paper:
+
+Behabadi BF, Mel BW
+Mechanisms underlying subunit independence in pyramidal neuron dendrites
+PNAS. 2014;111(1)
+
+The code here reproduces Figures 2b-e, 4b-e, and S5b-f from the paper.
+
+Usage:
+./runall.sh
+# This will generate 42 h5 files and 44 pkl files in data/ and 3 png files in figs/
+
+Dependencies:
+NEURON 7.0 - 7.3
+Python 2.5 - 2.7
+Numpy 1.5.1 - 1.7.1
+PyTables 2.1.2 - 2.4.0
+Matplotlib 1.0.1 - 1.1.1
+
+Notes: 
+Figures 2 and S5 may not exactly match those in paper due to PRNG issues.
+Will likely work with other versions of above dependencies with minor tweaks.
