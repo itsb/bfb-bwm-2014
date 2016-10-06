@@ -1,0 +1,10 @@
+*.pyc
+figs/Figure*.png
+data/*.h5
+data/*.pkl
+mods/i686
+mods/x86_64
+mods/powerpc
+mods/umac
+*.swp
+.DS_Store
