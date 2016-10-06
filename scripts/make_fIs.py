@@ -28,22 +28,27 @@ h.cvode.cache_efficient(1)
 
 def getfi(amp,simiter):
     h.tstop = 500 # to match synaptic input runs
+    h.tsamp = h.tstop/h.dt+1
+    tsamp = int(h.tsamp)
 
     # 'background' injection
     npy.random.seed(int(simiter+h.luckyoffset))
-    icr = h.IClamp(h.soma(.5))
+    icr = h.IClamp(0.5,sec=h.soma)
     icr.dur = h.tstop
     if numbranches==2:
         icmean = .75
     if numbranches==8:
         icmean = 0
     icstd = 1
-    icrand = h.Vector(icmean+icstd*npy.random.randn(h.tstop/h.dt+1))
+    icvals = icmean+icstd*npy.random.randn(tsamp)
+    icrand = h.Vector(tsamp)
+    for i in xrange(tsamp):
+        icrand.x[i] = icvals[i]
     icrand.play(icr._ref_amp,h.dt)
 
     # do current injection run
-    ic = h.IClamp(h.soma(.5))
-    ap = h.APCount(h.soma(.5))
+    ic = h.IClamp(0.5,sec=h.soma)
+    ap = h.APCount(0.5,sec=h.soma)
     ic.delay = 0
     ic.dur = h.tstop 
     ic.amp = amp
