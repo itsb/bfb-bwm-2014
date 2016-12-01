@@ -13,6 +13,15 @@ dt = .1/1000  # in seconds
 spkth = -20
 
 def savespkrate(prefix,dn,tstop=None,dt=dt,outname='some-spkavg.h5'):
+    """
+
+    Args:
+        prefix:
+        dn:
+        tstop:
+        dt:
+        outname:
+    """
     if len(prefix)>0: 
         outname = prefix+'spkavg.h5'
     h5fns = [fn for fn in listdir(dn) if fn.endswith('.h5') and fn.startswith(prefix) and 'run' in fn]
@@ -43,6 +52,12 @@ def savespkrate(prefix,dn,tstop=None,dt=dt,outname='some-spkavg.h5'):
     h5f.close()
 
 def runsavespkrate(prefix,dn):
+    """
+
+    Args:
+        prefix:
+        dn:
+    """
     print 'prefix: %s' % prefix
     try:
         tic = time()
@@ -53,6 +68,11 @@ def runsavespkrate(prefix,dn):
         pass
 
 def updatedir(dn='.'):
+    """
+
+    Args:
+        dn:
+    """
     ls = sorted(listdir(dn))
     prefixes = []
     for l in ls:

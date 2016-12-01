@@ -27,6 +27,15 @@ print "nseg", h.nsegcnt()
 h.cvode.cache_efficient(1)
 
 def getfi(amp,simiter):
+    """
+
+    Args:
+        amp:
+        simiter:
+
+    Returns:
+
+    """
     h.tstop = 500 # to match synaptic input runs
     h.tsamp = h.tstop/h.dt+1
     tsamp = int(h.tsamp)
