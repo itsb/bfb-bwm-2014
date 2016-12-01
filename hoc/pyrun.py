@@ -14,6 +14,11 @@ from neuron import h
 h.load_file('basal_project.hoc')
 
 def postrunrecgather(vd):
+    """
+
+    Args:
+        vd:
+    """
     ags = []
     for a in h.ampaglist:
         ags.append(npy.array(a))
@@ -50,6 +55,16 @@ def postrunrecgather(vd):
     vd.update({'rasind':rasind})
 
 def pyrun(ratio=0, loc=0, nsyn=0, sec=h.a10_11, icamps=[],dendrec=True):
+    """
+
+    Args:
+        ratio:
+        loc:
+        nsyn:
+        sec:
+        icamps:
+        dendrec:
+    """
 
     print '\n%s starting run' % (gethostname())
     iotim = 0
