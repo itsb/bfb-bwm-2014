@@ -8,6 +8,16 @@ from neuron import h
 h.load_file('basal_project.hoc')
 
 def pyloop(ratio=0, loc1=128, loc2=128, simiter=0, numbranches=0, dendrec=False):
+    """
+
+    Args:
+        ratio:
+        loc1:
+        loc2:
+        simiter:
+        numbranches:
+        dendrec:
+    """
 
     print '\n%s starting run' % (gethostname())
     iotim = 0
