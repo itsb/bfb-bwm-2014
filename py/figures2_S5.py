@@ -14,6 +14,16 @@ pyl.rc('path',simplify=True)     # http://matplotlib.sourceforge.net/examples/py
 pyl.rc('figure.subplot',top=.95,bottom=.15,left=.05,right=.95,wspace=.0,hspace=.25)
 
 def computefit(spkr,Itof,ftoI):
+    """
+
+    Args:
+        spkr:
+        Itof:
+        ftoI:
+
+    Returns:
+
+    """
     spkrorig = spkr.copy()
     # 2 input (group) regression
     ii, jj = npy.where(spkr>0)
@@ -54,6 +64,16 @@ def computefit(spkr,Itof,ftoI):
     return (Ii,Ij,imin,spkrest,lmin,lmax,mse,rmse,nrmse,spkcorr)
 
 def f2S5plot(loc1,loc2,numbranches):
+    """
+
+    Args:
+        loc1:
+        loc2:
+        numbranches:
+
+    Returns:
+
+    """
     ss = 2 # stepsize
     I = cPickle.load(open('data/fI-I-%dbranch.pkl' % (numbranches)))
     f = cPickle.load(open('data/fI-%dbranch-all.pkl' % (numbranches))).mean(0)
