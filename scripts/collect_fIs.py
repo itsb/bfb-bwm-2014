@@ -7,6 +7,12 @@ from time import time
 import cPickle
 
 def savespkrate(prefix,dn):
+    """
+
+    Args:
+        prefix:
+        dn:
+    """
     if len(prefix)>0: 
         outname = prefix+'all.pkl'
     fns = [fn for fn in listdir(dn) if fn.endswith('.pkl') and fn.startswith(prefix) and 'run' in fn]
@@ -17,6 +23,12 @@ def savespkrate(prefix,dn):
     cPickle.dump(f,open(os.path.join(dn,outname),'w'))
 
 def runsavespkrate(prefix,dn):
+    """
+
+    Args:
+        prefix:
+        dn:
+    """
     print 'prefix: %s' % prefix
     try:
         tic = time()
@@ -27,6 +39,11 @@ def runsavespkrate(prefix,dn):
         pass
 
 def updatedir(dn='.'):
+    """
+
+    Args:
+        dn:
+    """
     ls = sorted(listdir(dn))
     prefixes = []
     for l in ls:
